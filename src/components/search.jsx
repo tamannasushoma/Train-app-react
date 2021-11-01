@@ -6,66 +6,66 @@ import { Link } from 'react-router-dom';
 
 class SearchBy extends Component {
 
-    state={
+    state = {
 
     }
 
-    handleChange=()=>{
+    handleChange = () => {
         return null;
     }
-    handleSubmit=()=>{
+    handleSubmit = () => {
         console.log("clicked");
     }
-    render() { 
+    render() {
         return (
-        <React.Fragment>
-            <div className="container-fluid search-banner">
-                <div className="search-box">
+            <React.Fragment>
+                <div className="container-fluid search-banner">
+                    <div className="search-box">
 
-                <form onSubmit={this.handlesubmit} className="mb-4">
-                <div className="form-group search-form">
-                        <input 
-                        onChange={this.handleChange}
-                        autoFocus 
-                        type="text" 
-                        className="form-control" 
-                        name="trainName"
-                        placeholder="Train name"/>
-                       
-                </div>
+                        <form onSubmit={this.handlesubmit} className="mb-4">
+                            <div className="form-group search-form">
+                                <input
+                                    onChange={this.handleChange}
+                                    autoFocus
+                                    type="text"
+                                    className="form-control"
+                                    name="trainName"
+                                    placeholder="Train name" />
 
-                <div className="form-group search-form">
-                        <input 
-                        onChange={this.handleChange}
-                        autoFocus 
-                        type="text" 
-                        className="form-control" 
-                        name="stationName"
-                        placeholder="Station name"/>
-                       
-                </div>
+                            </div>
 
-                <div className="form-group search-form">
-                        <input 
-                        onChange={this.handleChange}
-                        autoFocus 
-                        type="date" 
-                        className="form-control" 
-                        name="date"
-                        placeholder="Travel Date"/>
-                       
-                </div>
-                </form>
+                            <div className="form-group search-form">
+                                <input
+                                    onChange={this.handleChange}
+                                    autoFocus
+                                    type="text"
+                                    className="form-control"
+                                    name="stationName"
+                                    placeholder="Station name" />
 
-                <div className="text-cneter">
-                    <Link to="/search-by" className="btn btn-sm ml-2 btn-warning" role="button">Find Train</Link>
-                </div>
+                            </div>
+
+                            <div className="form-group search-form">
+                                <input
+                                    onChange={this.handleChange}
+                                    autoFocus
+                                    type="date"
+                                    className="form-control"
+                                    name="date"
+                                    placeholder="Travel Date" />
+
+                            </div>
+                        </form>
+
+                        <div className="text-cneter">
+                            <Link to="/search-by" className="btn btn-sm ml-2 btn-warning" role="button">Find Train</Link>
+                        </div>
+
+                    </div>
 
                 </div>
-                
-            </div>
-        </React.Fragment>);
+            </React.Fragment>);
     }
 }
- 
+
 export default SearchBy;

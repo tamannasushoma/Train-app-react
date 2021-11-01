@@ -7,25 +7,25 @@ import { pagiante } from './../utils/paginate';
 const DISTRICT_API_URL = 'http://localhost:8080/get_district_list';
 
 class Districts extends Component {
-    state={
+    state = {
         districts: [],
         pageSize: 8,
-        currentPage : 1
-      };
-    
-       async componentDidMount(){
-          const {data: districts} = await axios.get(DISTRICT_API_URL);
-          this.setState({districts});
-       }
+        currentPage: 1
+    };
 
-       handlePage= page =>{
-        this.setState({currentPage:page});
+    async componentDidMount() {
+        const { data: districts } = await axios.get(DISTRICT_API_URL);
+        this.setState({ districts });
     }
 
-    render() { 
+    handlePage = page => {
+        this.setState({ currentPage: page });
+    }
 
-        const {length: pageCount} = this.state.districts;
-        const {pageSize, currentPage} = this.state;
+    render() {
+
+        const { length: pageCount } = this.state.districts;
+        const { pageSize, currentPage } = this.state;
 
         const districtList = pagiante(this.state.districts, currentPage, pageSize)
 
@@ -36,36 +36,36 @@ class Districts extends Component {
                 </h1>
 
                 <div className="container train-table pl-5">
-    {/* table  *************************************************************/}
-        <table className="table table-md table-bordered">
-            <thead className="thead-primary">
-                <tr>
-                    <th scope="col">District</th>
-                    <th scope="col">Division</th>
-                    <th scope="col">Station Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                {districtList.map(district => (
-                    <tr key={district.id}>
-                    <td>{district.district}</td>
-                    <td>{district.division}</td>
-                    <td>{district.station}</td>
-                </tr>
-                ))}
-                 
-            </tbody>
-        </table>
-        <Pagination 
-        count={pageCount} 
-        pageSize={pageSize} 
-        currentPage ={currentPage} 
-        onPageChange={this.handlePage} />
-    {/* table ***************************************************************/}
+                    {/* table  *************************************************************/}
+                    <table className="table table-md table-bordered">
+                        <thead className="thead-primary">
+                            <tr>
+                                <th scope="col">District</th>
+                                <th scope="col">Division</th>
+                                <th scope="col">Station Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {districtList.map(district => (
+                                <tr key={district.id}>
+                                    <td>{district.district}</td>
+                                    <td>{district.division}</td>
+                                    <td>{district.station}</td>
+                                </tr>
+                            ))}
+
+                        </tbody>
+                    </table>
+                    <Pagination
+                        count={pageCount}
+                        pageSize={pageSize}
+                        currentPage={currentPage}
+                        onPageChange={this.handlePage} />
+                    {/* table ***************************************************************/}
                 </div>
             </div>
         </React.Fragment>);
     }
 }
- 
+
 export default Districts;
